@@ -3,7 +3,8 @@ Calcolare la propagazione degli errori nelle misure automaticamente
 
 Road map:
 1) Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda (fatto)
-2) Creare una pagina di login con paywall PayPal prima di accedere
-3) Integrare script Python nel codice HTML
+2) Creare un paywall PayPal 
+3) Creare una schermata di login con username e password (parte HTML fatta che mostra solo la schermata di login ma non colleziona i dati, manca la parte di salvataggio dati in un database (PHP o SQL))
+4) Integrare script Python nel codice HTML
 
 Work in Progress...
