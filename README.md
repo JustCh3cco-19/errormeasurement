@@ -2,7 +2,7 @@
 Calcolare la propagazione degli errori nelle misure automaticamente
 
 Road map:
-- [x] Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda 
+ Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda - [x]
 2) Implementare la funzione lambda nel codice Python - []
 3) Creare un paywall PayPal -[]
 4) Creare una schermata di login con username e password (username->email) -[x]
