@@ -1,39 +1,31 @@
 <?php
-
 @include 'config.php';
 
-if (isset($_POST['submit'])) {
+$error = array();
 
+if (isset($_POST['submit'])) {
    $name = mysqli_real_escape_string($conn, $_POST['name']);
    $email = mysqli_real_escape_string($conn, $_POST['email']);
    $password = mysqli_real_escape_string($conn, $_POST['password']);
-   $cpass = mysqli_real_escape_string($conn, $_POST['password']);
-   $hash_pass = password_hash($password, PASSWORD_DEFAULT); //  encrypt password 
-   $hash_cpass = $hash_pass; // encrypt confirm password
-   // $pass = md5($_POST['password']); craccano la password facilmente
-   // $cpass = md5($_POST['cpassword']);
+   $cpass = mysqli_real_escape_string($conn, $_POST['cpassword']);
+   $hash_pass = password_hash($password, PASSWORD_DEFAULT);
    $user_type = $_POST['user_type'];
 
-   $select = " SELECT * FROM user_form WHERE email = '$email' && password = '$hash_pass' ";
-
+   $select = "SELECT * FROM user_form WHERE email = '$email'";
    $result = mysqli_query($conn, $select);
 
    if (mysqli_num_rows($result) > 0) {
-
-      $error[] = 'Questo utente già esiste';
+      $error[] = 'Email già utilizzata';
    } else {
-
-      if ($hash_pass != $hash_cpass) {
-         $error[] = 'password not matched!';
+      if ($password != $cpass) {
+         $error[] = 'Le password non corrispondono';
       } else {
          $insert = "INSERT INTO user_form(name, email, password, user_type) VALUES('$name','$email','$hash_pass','$user_type')";
          mysqli_query($conn, $insert);
-         header('location:login_form.php');
+         header('location: login_form.php');
       }
    }
-};
-
-
+}
 ?>
 
 <!DOCTYPE html>
