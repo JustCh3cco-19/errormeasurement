@@ -7,7 +7,7 @@ Road map:
 - [ ] Creare un paywall PayPal 
 - [x] Creare una schermata di login con username e password (username->email) 
 - [ ] Integrare script Python nel codice HTML 
-- [ ] Creare un canale telegram (se il progetto andrà a buon fine) per supporto e comunicare vari aggiornamenti sul sito
+- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
 
 Work in Progress...
 
