@@ -8,7 +8,7 @@ Road map:
 - [x] Creare una schermata di login con username e password (username->email) 
 - [ ] Integrare script Python nel codice HTML 
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
-
+- [ ] Dall'Area Privata andare nella sezione per la propagazione errori
 Work in Progress...
 
 
