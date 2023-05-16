@@ -7,6 +7,7 @@ Road map:
 - [ ] Creare un paywall PayPal 
 - [x] Creare una schermata di login con username e password (username->email) 
 - [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
+- [ ] Aggiungere al dato name l'attributo sql UNIQUE in modo che ci siano username tutti differenti
 - [ ] Creare un sistema di recovery password
 - [ ] Creare sezione admin sito
 - [ ] Integrare script Python nel codice HTML 
