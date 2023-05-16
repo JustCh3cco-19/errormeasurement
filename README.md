@@ -6,7 +6,8 @@ Road map:
 - [ ] Implementare la funzione lambda nel codice Python 
 - [ ] Creare un paywall PayPal 
 - [x] Creare una schermata di login con username e password (username->email) 
-- [x] Login funzionante su tutti i dispositivi (mobile, pc, tablet)
+- [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
+- [ ] Creare un sistema di recovery password
 - [ ] Creare sezione admin sito
 - [ ] Integrare script Python nel codice HTML 
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
