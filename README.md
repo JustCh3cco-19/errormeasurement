@@ -13,6 +13,8 @@ Road map:
 - [ ] Integrare script Python nel codice HTML 
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
 - [ ] Dall'Area Privata andare nella sezione per la propagazione errori
+- [ ] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
+- [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome
 
 Work in Progress...
 
