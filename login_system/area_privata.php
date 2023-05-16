@@ -1,8 +1,7 @@
 <?php
 
 require_once('config.php');
-
-session_start();
+$_SESSION['connessioneAttiva'] = false;
 
 // se non abbiamo una sessione attiva reindirizza l'utente al login per entrare nell'area privata
 if (!isset($_SESSION['user_name'])) {

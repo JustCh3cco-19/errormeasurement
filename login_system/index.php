@@ -1,8 +1,8 @@
 <?php
 
 require_once('config.php');
+$_SESSION['connessioneAttiva'] = false; // impostata su false in modo da non restituire a schermo la stringa per il check della connessione al database
 
-session_start();
 
 // schermata login dove bisogna inserire email e password con cui ci si è registrati
 if (isset($_POST['submit'])) {
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
          } */
          // se si tratta di un account user, rediretct all'area privata per lo user 
          if ($row['user_type'] == 'user') {
-            $_SESSION['user_name'] = $row['name'];
+            $_SESSION['user_name'] = $row['username'];
             header('location:area_privata.php');
          }
       } else { // se nel database non sono presenti l'email o password date in input dall'utente mostra a schermo il seguente messaggio

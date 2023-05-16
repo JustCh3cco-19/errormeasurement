@@ -1,10 +1,11 @@
 <?php
 
 require_once('config.php');
+$_SESSION['connessioneAttiva'] = false; // impostata su false in modo da non restituire a schermo la stringa per il check della connessione al database
 
 if (isset($_POST['submit'])) {
    // inizializzazione variabili per il register form
-   $name = $_POST['name'];
+   $username = $_POST['username'];
    $email = $_POST['email'];
    $password = $_POST['password'];
    $cpass = $_POST['cpassword'];
@@ -12,23 +13,41 @@ if (isset($_POST['submit'])) {
    $user_type = $_POST['user_type'];
 
    // uso delle prepared statements
-   $select = "SELECT * FROM user_form WHERE email = ?";
+   $select = "SELECT * FROM user_form WHERE username = ? OR email = ?";
    $stmt = mysqli_prepare($connessione, $select);
-   mysqli_stmt_bind_param($stmt, "s", $email);
+   mysqli_stmt_bind_param($stmt, "ss", $username, $email);
    mysqli_stmt_execute($stmt);
    $result = mysqli_stmt_get_result($stmt);
 
-   // check per vedere se l'input dell'utente nella sezione email è già stato utilizzato
+
+   // inizializzazione variabili check sia email e password singolarmente che contemporaneamente
+   $esisteUsername = false;
+   $esisteEmail = false;
+   $esistonoEmailUsername = false;
+
+   // check per vedere se l'input dell'utente nella sezione email e username è già stato utilizzato
    if (mysqli_num_rows($result) > 0) {
-      $error[] = 'Email già utilizzata!';
+      while ($row = mysqli_fetch_assoc($result)) {
+
+         if ($row['username'] === $username && $row['email'] === $email) {
+            $esistonoEmailUsername = true;
+            $error[] = 'Email e username già in uso';
+         } elseif ($row['username'] === $username) {
+            $esisteUsername = true;
+            $error[] = 'Username già in uso';
+         } elseif ($row['email'] === $email) {
+            $esisteEmail = true;
+            $error[] = 'Email già in uso';
+         }
+      }
    } else {
       if ($password != $cpass) {
          $error[] = 'Le password non corrispondono!'; // errore nell'inserimento password
       } else {
          // prepared statments (sicurezza aggiuntiva per prevenire sql injection)
-         $insert = "INSERT INTO user_form (name, email, password, user_type) VALUES (?, ?, ?, ?)";
+         $insert = "INSERT INTO user_form (username, email, password, user_type) VALUES (?, ?, ?, ?)";
          $stmt = mysqli_prepare($connessione, $insert);
-         mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $hash_pass, $user_type);
+         mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hash_pass, $user_type);
          mysqli_stmt_execute($stmt);
 
          header('location: index.php'); // redirect alla pagina di login
@@ -68,10 +87,10 @@ if (isset($_POST['submit'])) {
 
          ?>
 
-         <input type="text" name="name" required placeholder="inserisci il tuo nome" required>
-         <input type="email" name="email" required placeholder="inserisci la tua email" required>
-         <input type="password" name="password" required placeholder="inserisci la tua password" required>
-         <input type="password" name="cpassword" required placeholder="conferma la tua password" required>
+         <input type="text" name="username" placeholder="inserisci il tuo username" required>
+         <input type="email" name="email" placeholder="inserisci la tua email" required>
+         <input type="password" name="password" placeholder="inserisci la tua password" required>
+         <input type="password" name="cpassword" placeholder="conferma la tua password" required>
          <select name="user_type">
             <!-- <option value="admin">Admin</option> -->
             <option value="user">Utente</option>
