@@ -15,7 +15,8 @@ Road map:
 - [ ] Dall'Area Privata andare nella sezione per la propagazione errori
 - [ ] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
 - [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome
-- [ ] Rimuovere estensione .php alla fine di ogni url del sito
+- [x] Rimuovere estensione .php alla fine di ogni url del sito
+- [ ] Rimuovere nome della pagina in cui si è stati reindirizzati
 
 Work in Progress...
 
