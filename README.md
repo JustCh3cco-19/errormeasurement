@@ -11,12 +11,12 @@ Road map:
 - [ ] Creare un sistema di recovery password
 - [ ] Creare sezione admin sito + creare account database mysql in phpMyAdmin (sezione admin fatto)
 - [ ] Integrare script Python nel codice HTML 
-- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
+- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito (opzionale)
 - [ ] Dall'Area Privata andare nella sezione per la propagazione errori
 - [ ] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
 - [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
-- [ ] Rimuovere nome della pagina in cui si è stati reindirizzati
+- [x] Rimuovere nome della pagina in cui si è stati reindirizzati
 
 Work in Progress...
 
