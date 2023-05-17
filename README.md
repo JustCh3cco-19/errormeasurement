@@ -32,6 +32,8 @@ https://docs.pyscript.net/latest/ come integrare Python in HTML
 
 https://uiverse.io/ per template schermate HTML 
 
-http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%20associare%20al%20tuo%20account. creazione sito con altervista (gratuito)
+http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%20associare%20al%20tuo%20account. creazione sito con altervista (gratuito) --> ci sono problemi con altervista: non si può settare che nel link non venga mostrata l'estensione di ogni pagina a fine link (quindi meno indicizzazione su google quando si va a cercare il sito, bisogna trovare un'altra soluzione che sia o un altro servizio di web hosting o cercare un modo di aggirare questo problema su altervista) 
+
+https://www.codingnepalweb.com/configure-xampp-to-send-mail-from-localhost/
 
 
