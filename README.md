@@ -28,5 +28,8 @@ https://pyscript.net/ integrare Python in HTML
 
 https://docs.pyscript.net/latest/ come integrare Python in HTML
 
+https://uiverse.io/ per template schermate HTML 
+
+http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%20associare%20al%20tuo%20account. creazione sito con altervista (gratuito)
 
 
