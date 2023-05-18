@@ -7,4 +7,4 @@ session_start();
 session_unset();
 session_destroy();
 
-header('location:index.php'); // redirect al login
+header('location:index'); // redirect al login

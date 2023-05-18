@@ -30,9 +30,9 @@ if (!isset($_SESSION['admin_name'])) {
       <div class="content">
          <h1>Benvenuto, <span><?php echo $_SESSION['admin_name'] ?></span></h1>
          <p>Questa la sezione Admin</p>
-         <a href="register_form.php" class="btn">Registrazione Account</a>
-         <a href="index.php" class="btn">Login</a>
-         <a href="logout.php" class="btn">Logout</a>
+         <a href="registrati" class="btn">Registrazione Account</a>
+         <a href="index" class="btn">Login</a>
+         <a href="logout" class="btn">Logout</a>
       </div>
 
    </div>
