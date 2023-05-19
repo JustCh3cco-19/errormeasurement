@@ -15,7 +15,7 @@ Road map:
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito (opzionale)
 - [ ] Dall'Area Privata andare nella sezione per la propagazione errori
 - [x] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
-- [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome
+- [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome (per codice Python basta salvare il file con l'estensione .pyc al posto di .py)
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
 
