@@ -14,7 +14,7 @@ Road map:
 - [ ] Integrare script Python nel codice HTML 
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito (opzionale)
 - [ ] Dall'Area Privata andare nella sezione per la propagazione errori
-- [ ] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
+- [x] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
 - [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
