@@ -3,6 +3,7 @@
 require_once('config.php');
 $_SESSION['connessioneAttiva'] = false; // impostata su false in modo da non restituire a schermo la stringa per il check della connessione al database
 
+
 if (isset($_POST['submit'])) {
    // inizializzazione variabili per il register form
    $username = $_POST['username'];
@@ -10,7 +11,7 @@ if (isset($_POST['submit'])) {
    $password = $_POST['password'];
    $cpass = $_POST['cpassword'];
    $hash_pass = password_hash($password, PASSWORD_DEFAULT);
-   $user_type = $_POST['user_type'];
+   // $user_type = $_POST['user_type'];
 
    // uso delle prepared statements
    $select = "SELECT * FROM user_form WHERE username = ? OR email = ?";
@@ -28,7 +29,6 @@ if (isset($_POST['submit'])) {
    // check per vedere se l'input dell'utente nella sezione email e username è già stato utilizzato
    if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_assoc($result)) {
-
          if ($row['username'] === $username && $row['email'] === $email) {
             $esistonoEmailUsername = true;
             $error[] = 'Email e username già in uso';
@@ -44,10 +44,12 @@ if (isset($_POST['submit'])) {
       if ($password != $cpass) {
          $error[] = 'Le password non corrispondono!'; // errore nell'inserimento password
       } else {
+         // user_type
+         $verifica_email = 0;
          // prepared statments (sicurezza aggiuntiva per prevenire sql injection)
-         $insert = "INSERT INTO user_form (username, email, password, user_type) VALUES (?, ?, ?, ?)";
+         $insert = "INSERT INTO user_form (username, email, password)  VALUES (?, ?, ?)";
          $stmt = mysqli_prepare($connessione, $insert);
-         mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hash_pass, $user_type);
+         mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hash_pass); //$user_type);
          mysqli_stmt_execute($stmt);
 
          // header('location: index'); // redirect alla pagina di login
@@ -55,10 +57,10 @@ if (isset($_POST['submit'])) {
          // mostra a schermo Accedi con le tue credenziali nella pagina di login
          $login_ok = array("Accedi con le tue credenziali");
          header('location: index.php?login_ok=' . urlencode(json_encode($login_ok))); // redirect alla pagina di login con login_ok incluso
-
       }
    }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -91,11 +93,10 @@ if (isset($_POST['submit'])) {
          }
 
          if (isset($login_ok)) {
-            foreach ($login_ok as $login_ok) {
+            foreach ($login_ok as $login_ok_message) {
                echo '<span class="error-msg">' . $login_ok . '</span>';
             };
          }
-
 
          ?>
 
