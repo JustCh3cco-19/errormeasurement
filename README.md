@@ -18,6 +18,7 @@ Road map:
 - [ ] Trovare modo per non mostrare il codice tramite ispeziona di Chrome (per codice Python basta salvare il file con l'estensione .pyc al posto di .py)
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
+- [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
 
 
 Work in Progress...
