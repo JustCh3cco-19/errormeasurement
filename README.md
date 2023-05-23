@@ -19,7 +19,7 @@ Road map:
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
 - [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
-- [ ] Far funzionare il bottone torna all'area privata dallo script python 
+- [x] Far funzionare il bottone torna all'area privata dallo script python 
 
 
 Work in Progress...
