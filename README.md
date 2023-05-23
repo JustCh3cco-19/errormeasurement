@@ -20,7 +20,7 @@ Road map:
 - [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
 - [x] Far funzionare il bottone torna all'area privata dallo script python 
 - [ ] Calcolatrice grafica online (idea)
-
+- [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori)
 
 Work in Progress...
 
