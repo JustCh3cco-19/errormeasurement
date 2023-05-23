@@ -19,6 +19,7 @@ Road map:
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
 - [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
 - [x] Far funzionare il bottone torna all'area privata dallo script python 
+- [ ] Calcolatrice grafica online (idea)
 
 
 Work in Progress...
