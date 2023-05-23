@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Calcolatore di Funzioni</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        #torna-area-privata{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var stringa_funzione;
+        var valore_input;
+
+        // Richiedi input dall'utente
+        stringa_funzione = prompt("Inserisci una funzione con la sintassi Python: ");
+        valore_input = prompt("Inserisci un valore per calcolare la funzione con la sintassi Python: ");
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Esegui il codice PyScript
+            var funzione_lambda = function(x) {
+                return eval(stringa_funzione);
+            };
+
+            var valore_input_float = parseFloat(valore_input);
+            var risultato = funzione_lambda(valore_input_float);
+            var stringa = "Il risultato è: " + risultato;
+            console.log(stringa);
+
+            // Mostra il pulsante dopo un ritardo di 500 millisecondi
+            setTimeout(function() {
+                document.getElementById("torna-area-privata").style.display = "block";
+            }, 1500);
+        });
+    </script>
+    <py-script>
+# Import and use JS function and variable into Python
+# -*- coding: utf-8 -*-
+from js import stringa_funzione, valore_input
+        
+funzione_lambda = lambda x: eval(stringa_funzione)
+
+valore_input = float(valore_input)
+        
+risultato = funzione_lambda(valore_input)
+stringa = "Il risultato è:"
+stringa_codificata = stringa.encode('utf8')
+stringa_decodificata = stringa_codificata.decode("utf-8")
+
+print(stringa_decodificata, risultato)
+</py-script>
+    <button type="button" id="torna-area-privata" class="hidden" onclick="window.location.href ='../login_system/area_privata';">Torna all'area privata</button>
+</body>
+
+</html>
