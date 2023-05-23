@@ -10,7 +10,6 @@ Road map:
 - [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
 - [x] Aggiungere al dato name l'attributo sql UNIQUE in modo che ci siano username tutti differenti e adattare il codice di conseguenza
 - [ ] Creare un sistema di recovery password (senza conferma della mail associata all'account non si può fare)
-- [ ] Creare sezione admin sito + creare account database mysql in phpMyAdmin (sezione admin fatto)
 - [x] Integrare script Python nel codice HTML 
 - [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito (opzionale)
 - [x] Dall'Area Privata andare nella sezione per la propagazione errori
