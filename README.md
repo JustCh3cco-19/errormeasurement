@@ -5,14 +5,12 @@ Road map:
 - [x] Codice Python per la propagazione errori
 - [x] Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda (file creato a parte)
 - [ ] Implementare la funzione lambda nel codice Python
-- [x] Creare bottone in HTML per reindirizzare alla pagina di pagamento (vedremo se sostituirlo con bottone Paga Con Paypal ufficiale, quello giallo per intederci) 
-- [ ] Creare un paywall PayPal prima o dopo il login ma sicuramente prima del codice python che calcola la propagazione degli errori (trovati video youtube a riguardo) (IMPORTANTE: serve necessariamente un account PayPal Business, informarsi a riguardo sulle eventuali tasse/dichiarazione dei soldi nei redditi)
 - [x] Creare una schermata di login con username e password (username->email) 
 - [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
 - [x] Aggiungere al dato name l'attributo sql UNIQUE in modo che ci siano username tutti differenti e adattare il codice di conseguenza
 - [ ] Creare un sistema di recovery password (senza conferma della mail associata all'account non si può fare)
 - [x] Integrare script Python nel codice HTML (da sostituire poi con il codice definitivo)
-- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito (opzionale)
+- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
 - [x] Dall'Area Privata andare nella sezione per la propagazione errori
 - [x] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
 - [x] Trovare modo per non mostrare il codice tramite ispeziona di Chrome (pyscript non mostra il source code)
@@ -42,7 +40,3 @@ https://thedatafrog.com/en/articles/jupyter-notebooks-web-pages/ integrare juypt
 http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%20associare%20al%20tuo%20account. creazione sito con altervista (gratuito) --> ci sono problemi con altervista: non si può settare che nel link non venga mostrata l'estensione di ogni pagina a fine link (quindi meno indicizzazione su google quando si va a cercare il sito, bisogna trovare un'altra soluzione che sia o un altro servizio di web hosting o cercare un modo di aggirare questo problema su altervista) 
 
 https://replit.com/talk/learn/Create-Account-Database-MySQL-nodejs/20263 fare il deploy di un database mysql remote su replit
-
-https://developer.paypal.com/sdk/js/reference/ integrare PayPal
-
-https://developer.paypal.com/api/nvp-soap/paypal-payments-standard/integration-guide/buy-now-step-1/ pagamenti PayPal
