@@ -21,7 +21,7 @@ Road map:
 - [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
 - [x] Far funzionare il bottone torna all'area privata dallo script python 
 - [ ] Calcolatrice grafica online (idea)
-- [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori)
+- [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori, assistente google per bus atac (chiedi a google, ad esempio, a che ora passa indicativamente il bus atac in base alla tua posizione alla fermata più vicina e lui ti risponde con orario e posizione indicativi))
 
 Work in Progress...
 
@@ -43,6 +43,6 @@ http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%
 
 https://replit.com/talk/learn/Create-Account-Database-MySQL-nodejs/20263 fare il deploy di un database mysql remote su replit
 
+https://developer.paypal.com/sdk/js/reference/ integrare PayPal
+
 https://developer.paypal.com/api/nvp-soap/paypal-payments-standard/integration-guide/buy-now-step-1/ pagamenti PayPal
-
-
