@@ -42,4 +42,6 @@ http://it.help.altervista.org/w/FAQ#:~:text=Una%20volta%20scelto%20il%20nome,da%
 
 https://replit.com/talk/learn/Create-Account-Database-MySQL-nodejs/20263 fare il deploy di un database mysql remote su replit
 
+https://developer.paypal.com/api/nvp-soap/paypal-payments-standard/integration-guide/buy-now-step-1/ pagamenti PayPal
+
 
