@@ -4,7 +4,8 @@ Calcolare la propagazione degli errori nelle misure automaticamente
 Road map:
 - [x] Codice Python per la propagazione errori
 - [x] Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda (file creato a parte)
-- [ ] Implementare la funzione lambda nel codice Python 
+- [ ] Implementare la funzione lambda nel codice Python
+- [ ] Creare bottone in HTML per reindirizzare alla pagina di pagamento (vedremo se sostituirlo con bottone Paga Con Paypal ufficiale, quello giallo per intederci) 
 - [ ] Creare un paywall PayPal prima o dopo il login ma sicuramente prima del codice python che calcola la propagazione degli errori (trovati video youtube a riguardo) (IMPORTANTE: serve necessariamente un account PayPal Business, informarsi a riguardo sulle eventuali tasse/dichiarazione dei soldi nei redditi)
 - [x] Creare una schermata di login con username e password (username->email) 
 - [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
