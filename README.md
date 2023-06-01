@@ -20,6 +20,7 @@ Road map:
 - [x] Far funzionare il bottone torna all'area privata dallo script python 
 - [ ] Calcolatrice grafica online (idea)
 - [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori, assistente google per bus atac (chiedi a google, ad esempio, a che ora passa indicativamente il bus atac in base alla tua posizione alla fermata più vicina e lui ti risponde con orario e posizione indicativi))
+- [x] Aggiunto pulsante per download dei dati calcolati e stampati a schermo 
 
 Work in Progress...
 
