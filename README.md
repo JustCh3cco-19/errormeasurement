@@ -39,3 +39,5 @@ https://uiverse.io/ per template schermate HTML
 https://thedatafrog.com/en/articles/jupyter-notebooks-web-pages/ integrare juypter notebook all'interno di un sito
 
 https://github.com/paypal/PayPal-PHP-SDK/wiki paypal in php
+
+https://blog.pythonanywhere.com/121/ alternativa all'hosting con php, javascript (solo python, da verificare il funzionamento)
