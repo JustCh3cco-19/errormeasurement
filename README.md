@@ -43,3 +43,5 @@ https://github.com/paypal/PayPal-PHP-SDK/wiki paypal in php
 https://blog.pythonanywhere.com/121/ alternativa all'hosting con php, javascript (solo python, da verificare il funzionamento)
 
 https://github.com/paypal/PayPal-Python-SDK paypal in python (da provare)
+
+Riscrivere il sito da capo con Flask? (Bisogna aggiungere il database, paypal, gli accessi ecc)
