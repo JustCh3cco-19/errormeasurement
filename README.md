@@ -22,6 +22,7 @@ Road map:
 - [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori, assistente google per bus atac (chiedi a google, ad esempio, a che ora passa indicativamente il bus atac in base alla tua posizione alla fermata più vicina e lui ti risponde con orario e posizione indicativi))
 - [x] Aggiunto pulsante per download dei dati calcolati e stampati a schermo 
 - [x] Inserire PayPal per i pagamenti dei servizi
+- [x] Pagamenti con PayPal funzionanti
 - [ ] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
 
 Work in Progress...
