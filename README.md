@@ -25,6 +25,7 @@ Road map:
 - [x] Pagamenti con PayPal funzionanti
 - [ ] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
 - [ ] Aggiungere un controllo nel login -> se l'utente non esiste nel database, mostrare un messaggio di errore "Account non esistente"
+- [ ] Rimuovere il banner "Hosted by 000webhost"
 
 Work in Progress...
 
