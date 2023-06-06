@@ -24,6 +24,7 @@ Road map:
 - [x] Inserire PayPal per i pagamenti dei servizi
 - [x] Pagamenti con PayPal funzionanti
 - [ ] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
+- [ ] Aggiungere un controllo nel login -> se l'utente non esiste nel database, mostrare un messaggio di errore "Account non esistente"
 
 Work in Progress...
 
