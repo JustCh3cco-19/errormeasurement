@@ -22,6 +22,8 @@ function stampaConnessione()
     }
 }
 
-
-// manda a schermo il check della connessione se è attiva o meno (questo true fa vedere nelle pagine desiderate il messaggio all'interno della funzione stampaConnessione)
-$_SESSION['connessioneAttiva'] = true;
+if ($connessione->connect_errno) {
+    $_SESSION['connessioneAttiva'] = false;
+} else {
+    $_SESSION['connessioneAttiva'] = true;
+}

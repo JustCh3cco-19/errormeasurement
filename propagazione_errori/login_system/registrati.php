@@ -43,18 +43,17 @@ if (isset($_POST['submit'])) {
       if ($password != $cpass) {
          $error[] = 'Le password non corrispondono!'; // errore nell'inserimento password
       } else {
-         $verifica_email = 0;
          // prepared statments (sicurezza aggiuntiva per prevenire sql injection)
          $insert = "INSERT INTO user_form (username, email, password)  VALUES (?, ?, ?)";
          $stmt = mysqli_prepare($connessione, $insert);
          mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hash_pass);
          mysqli_stmt_execute($stmt);
 
-         header('location: ../index');
+         // header('location: ../index');
 
          // mostra a schermo Accedi con le tue credenziali nella pagina di login
-         /*$login_ok = array("Accedi con le tue credenziali");
-         header('location: propagazione_errori/index.php?login_ok=' . urlencode(json_encode($login_ok))); // redirect alla pagina di login con login_ok incluso*/
+         $login_ok = array("Accedi con le tue credenziali");
+         header('location: ../index.php?login_ok=' . urlencode(json_encode($login_ok))); // redirect alla pagina di login con login_ok incluso
       }
    }
 }
