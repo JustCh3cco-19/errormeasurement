@@ -1,0 +1,10 @@
+//var num; // numero di variabili
+// var valore; // 
+// var varianze;
+// inserisci funzione da calcolare e il valore in cui vuoi calcolarla
+// num = prompt('Inserire numero incognite (max 5) ==> ');
+// valore = prompt((i+1) +')');
+// varianze = prompt('Inserisci varianze: ');
+// var valore = parseFloat(valore);
+// var varianze = parseFloat(varianze);
+// console.log(stringa);

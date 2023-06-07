@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Calcola la tua funzione</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+      #torna-area-privata {
+        display: none;
+      }
+      #download-button {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+          var stringa_funzione; // stringa funzione da calcolare
+      var valore_input; // stringa valore da dare in input alla funzione da calcolare
+
+      // inserisci funzione da calcolare e il valore in cui vuoi calcolarla
+      stringa_funzione = prompt("Inserisci una funzione (usa la sintassi Python!): ");
+      valore_input = prompt("Inserisci un valore per calcolare la funzione (usa la sintassi Python!): ");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // esegue prima il codice python
+        var funzione_lambda = function (x) {
+          return eval(stringa_funzione);
+        };
+
+        var valore_input_float = parseFloat(valore_input);
+        var risultato = funzione_lambda(valore_input_float);
+        var stringa = "Il risultato è: " + risultato.toFixed(1);
+
+        setTimeout(function () {
+          document.getElementById("torna-area-privata").style.display = "block";
+          document.getElementById("download-button").style.display = "block";
+        }, 2240);
+
+        document
+          .getElementById("download-button")
+          .addEventListener("click", function () {
+            var data = stringa;
+            var filename = prompt("Scegli il nome del file per salvarlo");
+            var file = new Blob([data], { type: "text/plain" });
+
+            var a = document.createElement("a");
+            var url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+
+            setTimeout(function () {
+              document.body.removeChild(a);
+              window.URL.revokeObjectURL(url);
+            }, 0);
+          });
+      });
+    </script>
+    <py-script>
+    # Import and use JS function and variable into Python
+    # -*- coding: utf-8 -*-
+    from js import stringa_funzione, valore_input
+
+    funzione_lambda = lambda x: eval(stringa_funzione)
+    valore_input = float(valore_input)
+    risultato = funzione_lambda(valore_input)  
+    
+    stringa = "Il risultato è:" 
+    print(stringa, risultato)
+    </py-script>
+    <button type="button" id="torna-area-privata" class="hidden" onclick="window.location.href ='../login/area_privata';">Torna all'area privata</button>
+    <button type="button" id="download-button" class="hidden">Scarica dati</button>
+  </body>
+</html>
