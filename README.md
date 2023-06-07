@@ -26,6 +26,8 @@ Road map:
 - [x] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
 - [x] Aggiungere un controllo nel login -> se l'utente non esiste nel database, mostrare un messaggio di errore "Account non esistente"
 - [ ] Rimuovere il banner "Hosted by 000webhost"
+- [ ] Sistemare meglio i bottoni paypal (metterli al centro della pagina)
+- [ ] Allungare il tempo per mostrare i bottoni nella sezione calcola la tua funzione
 
 Work in Progress...
 
