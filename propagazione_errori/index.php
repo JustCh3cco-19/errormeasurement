@@ -1,6 +1,6 @@
 <?php
 
-require_once('login_system/config.php');
+require_once('login/config.php');
 $_SESSION['connessioneAttiva'] = false; // impostata su false in modo da non restituire a schermo la stringa per il check della connessione al database
 
 
@@ -25,16 +25,20 @@ if (isset($_POST['submit'])) {
       if (password_verify($password, $stored_password)) {
          if ($row['user_type'] == 'user') {
             $_SESSION['user_name'] = $row['username'];
-            header('location:login_system/area_privata');
+            $_SESSION['email'] = $email;
+            header('location:login/area_privata');
+            exit();
          }
       } else { // se nel database non sono presenti l'email o password date in input dall'utente mostra a schermo il seguente messaggio
          $error[] = 'Email o password non corretta!';
       }
+   } else {
+      $error[] = "L'account non è presente nel database. Registrati con il tasto qui sotto:";
    }
 }
 
 // mostrare messaggio "Accedi con le tue credenziali al primo login subito dopo la registrazione"
-/*$login_ok_message = '';
+$login_ok_message = '';
 
 if (isset($_GET['login_ok'])) {
    $login_ok = json_decode(urldecode($_GET['login_ok']), true);
@@ -42,7 +46,6 @@ if (isset($_GET['login_ok'])) {
       $login_ok_message = $login_ok[0]; // Prendi solo il primo messaggio
    }
 }
-*/
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +85,7 @@ if (isset($_GET['login_ok'])) {
          <input type="email" name="email" required placeholder="inserisci la tua email" required>
          <input type="password" name="password" placeholder="inserisci la tua password" required>
          <input type="submit" name="submit" value="Accedi" class="form-btn">
-         <p>Non hai un account? <a href="login_system/registrati">Registrati</a></p>
+         <p>Non hai un account? <a href="login/registrati">Registrati</a></p>
       </form>
 
    </div>
