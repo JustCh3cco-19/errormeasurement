@@ -30,6 +30,7 @@ Road map:
 - [x] Allungare il tempo per mostrare i bottoni nella sezione calcola la tua funzione
 - [ ] Creare una pagina di start su cosa è il sito e quali funzioni troviamo al suo interno
 - [ ] Aggiungere blocco alla pagina di calcolo se non si è fatto il login (come per l'area privata)
+- [ ] Aggiunti calcolo integrali definiti
 
 Work in Progress...
 
