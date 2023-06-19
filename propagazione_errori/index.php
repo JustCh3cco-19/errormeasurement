@@ -57,10 +57,13 @@ if (isset($_GET['login_ok'])) {
    <meta name="description" content="Inserire breve descrizione del sito">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Accedi</title>
-
-   <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
+   <script>
+      window.onload = () => {
+         let bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+         bannerNode.parentNode.removeChild(bannerNode);
+      }
+   </script>
 </head>
 
 <body>
