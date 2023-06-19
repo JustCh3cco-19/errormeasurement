@@ -34,11 +34,14 @@ if (isset($_SESSION['user_name'])) {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Area Privata</title>
-
-   <!-- Custom CSS file link  -->
    <link rel="stylesheet" href="../css/style.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
+   <script>
+      window.onload = () => {
+         let bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+         bannerNode.parentNode.removeChild(bannerNode);
+      }
+   </script>
 </head>
 
 <body>
@@ -49,12 +52,15 @@ if (isset($_SESSION['user_name'])) {
          <h1>Ciao <span><?php echo $_SESSION['user_name']; ?></span></h1>
          <p>Questa è la tua Area Privata</p>
          <?php if ($_SESSION['pagato'] == 1) : ?>
-            <a href="../calcola/calcolaf(x).html" class="btn">Calcola la funzione</a>
+            <a href="../calcola/integrali.html" class="btn">Calcolo di integrali</a>
+            <a href="../calcola/sostituisci.html" class="btn">Calcolo di una funzione</a>
          <?php else : ?>
-            <p>Clicca uno di questi bottoni per poterci supportare con un piccolo contributo!</p>
-            <div id="paypal-button-container"></div>
-            <script src="https://www.paypal.com/sdk/js?client-id=ASBcA_JGwWk6AYu8JkQA8Z9Izj5e2mjbZwJNgI7axRjuxhvk_I_n4cXZfXML1wQyJO9Io87q8IHmr4Z2&currency=EUR&buyer-country=IT&locale=it_IT"></script>
-            <script src="../paga/paypal.js"></script>
+            <p style="max-width: 500px; margin: 0 auto;">Con il costo di due caffè puoi aiutarci a mantenere il sito, clicca qui sotto per contribuire e sbloccare le funzionalità del sito: </p>
+
+            <div id="paypal-button-container">
+               <script src="https://www.paypal.com/sdk/js?client-id=ASBcA_JGwWk6AYu8JkQA8Z9Izj5e2mjbZwJNgI7axRjuxhvk_I_n4cXZfXML1wQyJO9Io87q8IHmr4Z2&currency=EUR&buyer-country=IT&locale=it_IT"></script>
+               <script src="../paga/paypal.js"></script>
+            </div>
          <?php endif; ?>
          <a href="../" class="btn">Login</a>
          <a href="logout" class="btn">Logout</a>
