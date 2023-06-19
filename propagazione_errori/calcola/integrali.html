@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="robots" content="noindex" />
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Calcolo integrali ad una variabile, doppi, tripli</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+        packages = ["sympy"]
+    </py-config>
+</head>
+
+<body>
+    <script>
+        var scelta;
+        var integrando;
+        var a_lower;
+        var b_upper;
+        var start;
+        var x_lower;
+        var x_upper;
+        var y_lower;
+        var y_upper;
+        var z_lower;
+        var z_upper;
+        var errore;
+
+
+        var start = alert("Calcolo integrali definiti: subito dopo questo alert ti verrà mostrato un popup dove puoi scegliere cosa calcolare: \ndef -> integrali definiti ad una variabile (x); \ndoppio -> integrali doppi (x, y); \ntriplo -> integrali tripli (x, y, z). \nUsa la sintassi Python per calcolare gli integrali.");
+
+        var scelta = prompt("Scegli tra def/doppio/triplo:");
+
+        if (scelta == "def") {
+            var integrando = prompt("Inserisci la funzione di cui calcolare l'integrale definito (usa x come variabile in sintassi Python): ");
+            var a_lower = parseFloat(prompt("Inserisci il primo estremo di integrazione (a): "));
+            var b_upper = parseFloat(prompt("Inserisci il secondo estremo di integrazione (b): "));
+        } else if (scelta == "doppio") {
+            var integrando = prompt("Inserisci la funzione di cui calcolare l'integrale doppio (usa x,y come variabili in sintassi Python): ");
+            var x_lower = parseFloat(prompt("Inserisci il limite inferiore di x (a): "));
+            var x_upper = parseFloat(prompt("Inserisci il limite superiore di x (b): "));
+            var y_lower = parseFloat(prompt("Inserisci il limite inferiore di y (a): "));
+            var y_upper = parseFloat(prompt("Inserisci il limite superiore di y (b): "));
+        } else if (scelta == "triplo") {
+            var integrando = prompt("Inserisci la funzione di cui calcolare l'integrale doppio (usa x,y,z come variabili in sintassi Python): ");
+            var x_lower = parseFloat(prompt("Inserisci il limite inferiore di x (a): "));
+            var x_upper = parseFloat(prompt("Inserisci il limite superiore di x (b): "));
+            var y_lower = parseFloat(prompt("Inserisci il limite inferiore di y (a): "));
+            var y_upper = parseFloat(prompt("Inserisci il limite superiore di y (b): "));
+            var z_lower = parseFloat(prompt("Inserisci il limite inferiore di z (a): "));
+            var z_upper = parseFloat(prompt("Inserisci il limite superiore di z (b): "));
+        } else {
+            var errore = alert("Scelta errata, riprova")
+        }
+    </script>
+    <py-script>
+        # Import and use JS function and variable into Python
+        from js import scelta, integrando, a_lower, b_upper, x_lower, x_upper, y_lower, y_upper, z_lower, z_upper, errore
+        import sympy as sp
+        
+        def integrali_definiti(y, x, a, b):
+        # calcolo integrale
+
+            integrando = sp.sympify(y)
+            integrale = sp.integrate(integrando, (x, a, b))
+            return integrale.doit()
+        
+        def doppio(integrando, x_lower, x_upper, y_lower, y_upper):
+        # estremi di integrazione
+            x = sp.symbols('x')
+            y = sp.symbols('y')
+
+        # calcolo integrale
+            funzione = sp.sympify(integrando)
+            integrale = sp.integrate(sp.integrate(funzione, (x, x_lower, x_upper)), (y, y_lower, y_upper))
+            return integrale
+
+        # integrale triplo in dx dy dz
+        def triplo(integrando, x_lower, x_upper, y_lower, y_upper, z_lower, z_upper):
+        # estremi di integrazione
+            x = sp.symbols('x')
+            y = sp.symbols('y')
+            z = sp.symbols('z')
+    
+        # calcolo integrale
+            funzione = sp.sympify(integrando)
+            integrale = sp.integrate(sp.integrate(sp.integrate(funzione, (x, x_lower, x_upper)), (y, y_lower, y_upper)), (z, z_lower, z_upper))
+            return integrale
+        
+        if scelta == "def":
+        # risultato
+            x = sp.Symbol('x')
+            y = sp.Symbol('y')
+            risultato = integrali_definiti(integrando, x, a_lower, b_upper)
+            print(f"L'integrale indefinito di", repr(integrando), "tra", repr(a_lower), "e", repr(b_upper), "in dx è:", float(risultato))
+        
+        # integrali doppi
+        elif scelta == "doppio":
+        # risultato
+            risultato = doppio(integrando, x_lower, x_upper, y_lower, y_upper)
+            print("Il risultato dell'integrale doppio di", repr(integrando), "su x da", x_lower, "a", x_upper, "e su y da", y_lower, "a", y_upper, "è:", float(risultato))
+        
+        # integrale definito triplo
+        elif scelta == "triplo":
+            # risultato
+            risultato = triplo(integrando, x_lower, x_upper, y_lower, y_upper, z_lower, z_upper)
+            print("Il risultato dell'integrale triplo di", repr(integrando), "su x da", x_lower, "a", x_upper, "su y da", y_lower, "a", y_upper, "e su z da", z_lower, "a", z_upper, "è:", float(risultato))
+        
+        # errore
+        else: 
+            print("Scelta errata, riprova")
+
+    </py-script>
+    <button type="button" id="torna-area-privata" class="hidden" onclick="window.location.href ='../login/area_privata';">Torna all'area privata</button>
+</body>
+
+</html>
