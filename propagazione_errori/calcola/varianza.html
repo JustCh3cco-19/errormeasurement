@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calcola Varianza</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <py-config>
+    packages = ["sympy", "numpy"]
+    </py-config>
+  </head>
+<body>
+<script>
+    var num; 
+    var valore = []; 
+    var varianze = [];
+    var funzione;
+    var val = [];
+    var variabili = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+    var test;
+    var S = [];
+
+    warning = alert("La funzione può essere costituita da massimo 10 variabili.\nLe variabili devono essere scritte in ordine alfabetico con lettere che vanno dalla a alla j.\nRispettare l'ordine alfabetico per inserire i valori.\nEsempio: a*b/c*sqrt(d).\nIMPORTANTE: utilizza la sintassi Python per scrivere la funzione da calcolare!!!\nEsempio: sin(a), cos(b), log(c), sqrt(d), a**2.");
+    
+    while (true) {
+        num = prompt('Inserire numero incognite (max 10) ==> ');
+        if (num !== null && !isNaN(num) && parseInt(num) >= 1 && parseInt(num) <= 10) {
+            num = parseInt(num);
+            break;
+        }
+    }
+    
+    funzione = prompt('Inserisci funzione: ');
+
+    for (var i = 0; i < num; i++) {
+        valore[i] = parseFloat(prompt("Valore incognita " + variabili[i]));
+    }
+
+    for (var i = 0; i < num; i++) {
+        val[i] = parseFloat(prompt("Varianza " + variabili[i]));
+    }
+
+    test = prompt("Sicuro di aver messo le varianze? (Rispondi con si o no)");
+    
+    while (test.toLowerCase() !== 'si') {
+        test = prompt("Sicuro di aver messo le varianze? (Rispondi con si o no)");
+    }
+    
+    for (var i = 0; i < num - 1; i++) {
+        S[i] = []; // Inizializza un array vuoto per ogni riga
+        for (var j = i + 1; j < num; j++) {
+            S[i][j] = parseFloat(prompt("Covarianza " + variabili[i] + "-" + variabili[j] + " ==> "));
+        }
+    }
+</script>
+
+<py-script>
+    import numpy as np
+    import sympy
+    from sympy import *
+    from js import num, valore, varianze, funzione, test, S, variabili
+
+    N = 10
+    # ### Funzione
+
+    stringa = 'a b c d e f g h i j'
+    a,b,c,d,e,f,g,h,i,j = symbols(stringa)
+    diz = {0:a,1:b,2:c,3:d,4:e,5:f,6:g,7:h,8:i,9:j}
+
+    f = eval(funzione)
+
+    val = np.zeros(N)
+
+    for i in range(num):
+        val[i] = valore[i]
+
+    cov_mat = np.zeros([N,N])
+    
+    for i in range(num):
+        cov_mat[i][i] = val[i]
+    
+    for i in range(num - 1):
+        for j in range(i + 1, num):
+            cov_mat[i][j] = cov_mat[j][i] = S[i][j]
+
+    varianze = np.array(varianze)
+
+    print('Funzione:', funzione)
+    
+
+    print('Valori delle incognite:')
+    for i in range(num):
+        print(variabili[i] + ': ' + str(valore[i]))
+
+    print('Varianze:')
+    for i in range(num):
+        print(variabili[i] + ': ' + str(val[i]))
+
+    print('Covarianze:')
+    for i in range(num - 1):
+        for j in range(i + 1, num):
+            print(variabili[i] + '-' + variabili[j] + ': ' + str(S[i][j]))
+
+    var = 0
+    for i in diz:
+        fi = f.diff(diz[i])
+        for j in diz:
+            fj = f.diff(diz[j])
+            xi = fi.subs([(a,val[0]),(b,val[1]),(c,val[2]),(d,val[3]),(e,val[4]),
+                (f,val[5]),(g,val[6]),(h,val[7]),(i,val[8]),(j,val[9]),]).evalf() 
+            xj = fj.subs([(a,val[0]),(b,val[1]),(c,val[2]),(d,val[3]),(e,val[4]),
+                (f,val[5]),(g,val[6]),(h,val[7]),(i,val[8]),(j,val[9]),]).evalf()
+            var += (xi * xj * cov_mat[i,j])
+
+    dev = var ** 0.5
+
+    print('Varianza = ', var)
+    print('Deviazione standard = ', dev)
+</py-script>
+<button type="button" id="torna-area-privata" class="hidden" onclick="window.location.href ='../login/area_privata';">Torna all'area privata</button>
+</body>
+</html>
