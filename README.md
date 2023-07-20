@@ -4,19 +4,15 @@ Calcolare la propagazione degli errori nelle misure automaticamente
 Road map:
 - [x] Codice Python per la propagazione errori
 - [x] Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda (file creato a parte)
-- [ ] Implementare la funzione lambda nel codice Python
 - [x] Creare una schermata di login con username e password (username->email) 
 - [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
 - [x] Aggiungere al dato name l'attributo sql UNIQUE in modo che ci siano username tutti differenti e adattare il codice di conseguenza
-- [ ] Creare un sistema di recovery password (senza conferma della mail associata all'account non si può fare)
 - [x] Integrare script Python nel codice HTML (da sostituire poi con il codice definitivo)
-- [ ] Creare un canale telegram per supporto e comunicare vari aggiornamenti sul sito
 - [x] Dall'Area Privata andare nella sezione per la propagazione errori
 - [x] Integrare HTTPS nel codice e SSL per una connessione sicura al sito
 - [x] Trovare modo per non mostrare il codice tramite ispeziona di Chrome (pyscript non mostra il source code)
 - [x] Rimuovere estensione .php alla fine di ogni url del sito
 - [x] Rimuovere nome della pagina in cui si è stati reindirizzati
-- [ ] Bot di Telegram che utilizza gli stessi principi del sito ?
 - [x] Far funzionare il bottone torna all'area privata dallo script python 
 - [ ] Calcolatrice grafica online (idea)
 - [ ] Idea di raggruppare tutto in un unico sito (app sbobine, calcolatrice grafica, propagazione errori, assistente google per bus atac (chiedi a google, ad esempio, a che ora passa indicativamente il bus atac in base alla tua posizione alla fermata più vicina e lui ti risponde con orario e posizione indicativi))
@@ -28,8 +24,7 @@ Road map:
 - [x] Rimuovere il banner "Hosted by 000webhost"
 - [x] Sistemare meglio i bottoni paypal (metterli al centro della pagina)
 - [x] Allungare il tempo per mostrare i bottoni nella sezione calcola la tua funzione
-- [ ] Creare una pagina di start su cosa è il sito e quali funzioni troviamo al suo interno
-- [ ] Aggiungere blocco alla pagina di calcolo se non si è fatto il login (come per l'area privata)
+- [x] Creare una pagina di start su cosa è il sito e quali funzioni troviamo al suo interno
 - [x] Aggiunti calcolo integrali definiti
 - [x] Aggiungere tasto download dati integrali
 
