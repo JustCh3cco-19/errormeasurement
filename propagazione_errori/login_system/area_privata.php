@@ -52,8 +52,7 @@ if (isset($_SESSION['user_name'])) {
          <h1>Ciao <span><?php echo $_SESSION['user_name']; ?></span></h1>
          <p>Questa è la tua Area Privata</p>
          <?php if ($_SESSION['pagato'] == 1) : ?>
-            <a href="../calcola/integrali.html" class="btn">Calcolo di integrali</a>
-            <a href="../calcola/sostituisci.html" class="btn">Calcolo di una funzione</a>
+            <a href="../calcola/varianza.html" class="btn">Calcola la Varianza</a>
          <?php else : ?>
             <p style="max-width: 500px; margin: 0 auto;">Con il costo di due caffè puoi aiutarci a mantenere il sito, clicca qui sotto per contribuire e sbloccare le funzionalità del sito: </p>
 
