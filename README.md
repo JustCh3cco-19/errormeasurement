@@ -19,7 +19,7 @@ Road map:
 - [x] Pagamenti con PayPal funzionanti
 - [x] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
 - [x] Aggiungere un controllo nel login -> se l'utente non esiste nel database, mostrare un messaggio di errore "Account non esistente"
-- [] Rimuovere il banner "Hosted by 000webhost"
+- [ ] Rimuovere il banner "Hosted by 000webhost"
 - [x] Sistemare meglio i bottoni paypal (metterli al centro della pagina)
 - [x] Creare una pagina di start su cosa è il sito e quali funzioni troviamo al suo interno
 
