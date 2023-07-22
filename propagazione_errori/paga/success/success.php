@@ -5,6 +5,12 @@
     <title>Pagamento effettuato</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style/stile2.css" />
+    <script>
+        window.onload = () => {
+            let bannerNode = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+            bannerNode.parentNode.removeChild(bannerNode);
+        }
+    </script>
 </head>
 
 <body>

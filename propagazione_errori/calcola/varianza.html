@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calcola Varianza</title>
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <link rel="stylesheet" href="../css/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
     <py-config>
     packages = ["sympy", "numpy"]
     </py-config>
+    <style>
+    #torna-area-privata{
+        margin-bottom: 20px;
+    }
+    </style>
   </head>
 <body>
 <script>
@@ -25,14 +30,14 @@
     warning = alert("La funzione può essere costituita da massimo 10 variabili.\nLe variabili devono essere scritte in ordine alfabetico con lettere che vanno dalla a alla j.\nRispettare l'ordine alfabetico per inserire i valori.\nEsempio: a*b/c*sqrt(d).\nIMPORTANTE: utilizza la sintassi Python per scrivere la funzione da calcolare!!!\nEsempio: sin(a), cos(b), log(c), sqrt(d), a**2.");
     
     while (true) {
-        num = prompt('Inserire numero incognite (max 10) ==> ');
+        num = prompt('Inserire numero incognite (max 10)');
         if (num !== null && !isNaN(num) && parseInt(num) >= 1 && parseInt(num) <= 10) {
             num = parseInt(num);
             break;
         }
     }
     
-    funzione = prompt('Inserisci funzione: ');
+    funzione = prompt('Inserisci funzione');
 
     for (var i = 0; i < num; i++) {
         valore[i] = parseFloat(prompt("Valore incognita " + variabili[i]));
@@ -42,10 +47,10 @@
         val[i] = parseFloat(prompt("Varianza " + variabili[i]));
     }
 
-    test = prompt("Sicuro di aver messo le varianze? (Rispondi con si o no)");
+    test = prompt("Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare)");
     
     while (test.toLowerCase() !== 'si') {
-        test = prompt("Sicuro di aver messo le varianze? (Rispondi con si o no)");
+        test = prompt("Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare)");
     }
     
     for (var i = 0; i < num - 1; i++) {
@@ -55,7 +60,6 @@
         }
     }
 </script>
-
 <py-script>
     import numpy as np
     import sympy
@@ -120,5 +124,38 @@
     print('Deviazione standard = ', dev)
 </py-script>
 <button type="button" id="torna-area-privata" class="hidden" onclick="window.location.href ='../login/area_privata';">Torna all'area privata</button>
+<a href="data:text/plain;charset=utf-8," download="dati.txt">Scarica dati</a>
+<script>
+    document.getElementById('download-btn').addEventListener('click', function() {
+        // Crea una stringa con i dati da scaricare
+        let data = 'Funzione: ' + funzione + '\n';
+        data += 'Valori delle incognite:\n';
+        for (let i = 0; i < num; i++) {
+            data += variabili[i] + ': ' + valore[i] + '\n';
+        }
+        data += 'Varianze:\n';
+        for (let i = 0; i < num; i++) {
+            data += variabili[i] + ': ' + val[i] + '\n';
+        }
+        data += 'Covarianze:\n';
+        for (let i = 0; i < num - 1; i++) {
+            for (let j = i + 1; j < num; j++) {
+                data += variabili[i] + '-' + variabili[j] + ': ' + S[i][j] + '\n';
+            }
+        }
+        data += 'Varianza: ' + var + '\n';
+        data += 'Deviazione standard: ' + dev;
+
+        // Crea un elemento di ancoraggio e imposta l'attributo href per scaricare il file di testo
+        let a = document.createElement('a');
+        a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(data);
+        a.download = 'dati.txt';
+
+        // Aggiungi l'elemento di ancoraggio al documento e fai clic su di esso per avviare il download
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    });
+</script>
 </body>
 </html>
