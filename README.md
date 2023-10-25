@@ -1,5 +1,5 @@
 # propagazione_errori
-Calcolare la propagazione degli errori nelle misure automaticamente
+Calcolare la propagazione degli errori nelle misure in modo automatico tramite Python!
 
 Road map:
 - [x] Codice Python per la propagazione errori
