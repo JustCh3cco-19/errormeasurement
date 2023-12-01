@@ -1,20 +1,72 @@
 # propagazione_errori
-Calcolare la propagazione degli errori nelle misure in modo automatico tramite Python!
+Calcolo della varianza di una funzione
 
-Road map:
-- [x] Codice Python per la propagazione errori
-- [x] Migliorare gli script Python prendendo l'input della funzione come stringa e trasformarla in una funzione lambda (file creato a parte)
-- [x] Creare una schermata di login con username e password (username->email) 
-- [x] Login e registrazione funzionante su tutti i dispositivi (mobile, pc, tablet)
-- [x] Aggiungere al dato name l'attributo sql UNIQUE in modo che ci siano username tutti differenti e adattare il codice di conseguenza
-- [x] Integrare script Python nel codice HTML
-- [x] Dall'Area Privata andare nella sezione per la propagazione errori
-- [x] Rimuovere estensione .php alla fine di ogni url del sito
-- [x] Rimuovere nome della pagina in cui si è stati reindirizzati
-- [x] Far funzionare il bottone torna all'area privata dallo script python
-- [x] Aggiunto pulsante per download dei dati calcolati e stampati a schermo 
-- [x] Inserire PayPal per i pagamenti dei servizi
-- [x] Pagamenti con PayPal funzionanti
-- [x] Inserire il pagamento dei servizi nel database non appena l'utente effettua la transazione correttamente
-- [x] Aggiungere un controllo nel login -> se l'utente non esiste nel database, mostrare un messaggio di errore "Account non esistente"
-- [x] Sistemare meglio i bottoni paypal (metterli al centro della pagina)
+Questo codice consente di calcolare la varianza di una funzione matematica. La varianza è una misura della variabilità dei valori assunti da una funzione.
+
+Come funziona
+
+L'utente deve inserire le seguenti informazioni:
+
+Il numero di incognite della funzione
+La funzione matematica
+I valori delle incognite
+Le varianze delle incognite
+Le covarianza delle incognite
+Il codice calcola quindi la varianza della funzione utilizzando la seguente formula:
+
+var = Σ(xi * xj * cov_mat[i,j])
+dove:
+
+xi è la derivata prima di f() rispetto alla variabile i
+xj è la derivata prima di f() rispetto alla variabile j
+cov_mat[i,j] è la covarianza tra le variabili i e j
+La derivata prima di f() rispetto a ciascuna variabile è calcolata utilizzando il modulo SymPy.
+
+La covarianza tra due variabili è calcolata come media dei prodotti dei valori delle variabili, elevati al quadrato.
+
+Output
+
+Il codice stampa i seguenti risultati:
+
+La funzione matematica inserita dall'utente
+I valori delle incognite inseriti dall'utente
+Le varianze inserite dall'utente
+Le covarianza inserite dall'utente
+La varianza calcolata della funzione
+La deviazione standard della funzione
+Download dei dati
+
+Il codice fornisce anche un'opzione per scaricare i dati inseriti dall'utente. Per farlo, l'utente deve fare clic sul pulsante Scarica dati. Il codice crea un file di testo con i dati inseriti dall'utente e lo scarica sul computer dell'utente.
+
+Requisiti
+
+Il codice richiede i seguenti requisiti:
+
+Python 3.6 o superiore
+Il modulo NumPy
+Il modulo SymPy
+Esempio
+
+Ecco un esempio di utilizzo del codice:
+
+Inserisci numero incognite (max 10): 2
+Inserisci funzione: a + b
+Valore incognita "a" ==> 1
+Valore incognita "b" ==> 2
+Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare): si
+Varianza "a" ==> 1
+Varianza "b" ==> 4
+Covarianza "a-b" ==> 3
+
+Funzione: a + b
+Valori delle incognite:
+a: 1
+b: 2
+Varianze:
+a: 1
+b: 4
+Covarianze:
+a-b: 3
+
+Varianza = 10
+Deviazione standard = 3.162277660168379
