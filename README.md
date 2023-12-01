@@ -48,24 +48,24 @@ Il codice richiede i seguenti requisiti:
 ###### Esempio
 Ecco un esempio di utilizzo del codice:
 
-Inserisci numero incognite (max 10): 2
-Inserisci funzione: a + b
-Valore incognita "a" ==> 1
-Valore incognita "b" ==> 2
-Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare): si
-Varianza "a" ==> 1
-Varianza "b" ==> 4
-Covarianza "a-b" ==> 3
+- Inserisci numero incognite (max 10): 2
+- Inserisci funzione: a + b
+- Valore incognita "a" ==> 1
+- Valore incognita "b" ==> 2
+- Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare): si
+- Varianza "a" ==> 1
+- Varianza "b" ==> 4
+- Covarianza "a-b" ==> 3
 
-Funzione: a + b
-Valori delle incognite:
-a: 1
-b: 2
-Varianze:
-a: 1
-b: 4
-Covarianze:
-a-b: 3
+- Funzione: a + b
+- Valori delle incognite:
+- a: 1
+- b: 2
+- Varianze:
+- a: 1
+- b: 4
+- Covarianze:
+- a-b: 3
 
-Varianza = 10
-Deviazione standard = 3.162277660168379
+- Varianza = 10
+- Deviazione standard = 3.162277660168379
