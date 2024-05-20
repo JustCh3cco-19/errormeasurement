@@ -1,53 +1,100 @@
 # propagazione_errori
-## Calcolo della varianza di una funzione
+Calculation of Variance of a Function
 
-Questo codice consente di calcolare la varianza di una funzione matematica. La varianza è una misura della variabilità dei valori assunti da una funzione.
+This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
 
-### Come funziona
+How it works:
+The user needs to input the following information:
 
-L'utente deve inserire le seguenti informazioni:
+The number of variables of the function
+The mathematical function
+The values of the variables
+The variances of the variables
+The covariances of the variables
+The code then calculates the variance of the function using the following formula: var = Σ(xi * xj * cov_mat[i,j])
 
-* Il numero di incognite della funzione
-* La funzione matematica
-* I valori delle incognite
-* Le varianze delle incognite
-* Le covarianza delle incognite
+where:
 
-Il codice calcola quindi la varianza della funzione utilizzando la seguente formula:
-var = Σ(xi * xj * cov_mat[i,j])
+xi is the first derivative of f() with respect to variable i
+xj is the first derivative of f() with respect to variable j
+cov_mat[i,j] is the covariance between variables i and j
+The first derivative of f() with respect to each variable is calculated using the SymPy module.
 
-dove:
+The covariance between two variables is calculated as the average of the squared products of the variable values.
 
-xi è la derivata prima di f() rispetto alla variabile i
-xj è la derivata prima di f() rispetto alla variabile j
-cov_mat[i,j] è la covarianza tra le variabili i e j
-La derivata prima di f() rispetto a ciascuna variabile è calcolata utilizzando il modulo SymPy.
+Output:
+The code prints the following results:
 
-La covarianza tra due variabili è calcolata come media dei prodotti dei valori delle variabili, elevati al quadrato.
+The mathematical function entered by the user
+The values of the variables entered by the user
+The variances entered by the user
+The covariances entered by the user
+The calculated variance of the function
+The standard deviation of the function
+Data Download:
+The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it to the user's computer.
+
+Requirements:
+The code requires the following prerequisites:
+
+Python 3.6 or higher
+NumPy module
+SymPy module
+Example:
+Here's an example of using the code:
+
+[Example usage follows, which includes input prompts and outputs in English.]
+
+
+
+
+
+
+scrivimelo in markdown
+ChatGPT
+Sure, here's the provided text converted into Markdown format:
+
+Calculation of Variance of a Function
+This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
+
+How it works
+The user needs to input the following information:
+
+The number of variables of the function
+The mathematical function
+The values of the variables
+The variances of the variables
+The covariances of the variables
+The code then calculates the variance of the function using the following formula: var = Σ(xi * xj * cov_mat[i,j])
+
+where:
+
+xi is the first derivative of f() with respect to variable i
+xj is the first derivative of f() with respect to variable j
+cov_mat[i,j] is the covariance between variables i and j
+The first derivative of f() with respect to each variable is calculated using the SymPy module.
+
+The covariance between two variables is calculated as the average of the squared products of the variable values.
 
 Output
-Il codice stampa i seguenti risultati:
+The code prints the following results:
 
-- La funzione matematica inserita dall'utente
-- I valori delle incognite inseriti dall'utente
-- Le varianze inserite dall'utente
-- Le covarianza inserite dall'utente
-- La varianza calcolata della funzione
-- La deviazione standard della funzione
+The mathematical function entered by the user
+The values of the variables entered by the user
+The variances entered by the user
+The covariances entered by the user
+The calculated variance of the function
+The standard deviation of the function
+Data Download
+The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it to the user's computer.
 
-#### Download dei dati
-Il codice fornisce anche un'opzione per scaricare i dati inseriti dall'utente. Per farlo, l'utente deve fare clic sul pulsante Scarica dati. Il codice crea un file di testo con i dati inseriti dall'utente e lo scarica sul computer dell'utente.
+Requirements
+The code requires the following prerequisites:
 
-##### Requisiti
-Il codice richiede i seguenti requisiti:
-
-- Python 3.6 o superiore
-- Il modulo NumPy
-- Il modulo SymPy
-
-###### Esempio
-Ecco un esempio di utilizzo del codice:
-
+Python 3.6 or higher
+NumPy module
+SymPy module
+Example
 - Inserisci numero incognite (max 10): 2
 - Inserisci funzione: a + b
 - Valore incognita "a" ==> 1
