@@ -1,17 +1,16 @@
 # propagazione_errori
-## Calculation of Variance of a Function
+# Calculation of Variance of a Function
+## This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
 
-# This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
-
-How it works:
+## How it works:
 The user needs to input the following information:
 
-The number of variables of the function
-The mathematical function
-The values of the variables
-The variances of the variables
-The covariances of the variables
-The code then calculates the variance of the function using the following formula: var = Σ(xi * xj * cov_mat[i,j])
+The number of variables of the function;
+The mathematical function;
+The values of the variables;
+The variances of the variables;
+The covariances of the variables;
+The code then calculates the variance of the function using the following formula: var = Σ(xi * xj * cov_mat[i,j]);
 
 where:
 
