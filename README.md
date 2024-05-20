@@ -42,7 +42,7 @@ NumPy module
 SymPy module
 
 # Example
-## Here's an example of using the code:
+## Here's an example of using the code in a web page with the prompts:
 
 - Inserisci numero incognite (max 10): 2
 - Inserisci funzione: a + b
