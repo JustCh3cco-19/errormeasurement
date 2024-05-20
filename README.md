@@ -17,7 +17,7 @@ where:
 - xi is the first derivative of f() of variable i
 - xj is the first derivative of f() of variable j
 - cov_mat[i,j] is the covariance between variables i and j
-- The first derivative of f() with respect to each variable is calculated using the SymPy module
+- The first derivative of f() of each variable is calculated using the SymPy module
 
 - The covariance between two variables is calculated as the average of the squared products of the variable values.
 
