@@ -31,10 +31,10 @@ where:
 - The calculated variance of the function;
 - The standard deviation of the function;
 
-# Data Download:
+# Data Download
 ## The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it to the user's computer.
 
-# Requirements:
+# Requirements
 ## The code requires the following prerequisites:
 
 Python 3.6 or higher;
