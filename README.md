@@ -14,8 +14,8 @@ The user needs to input the following information:
 
 where:
 
-- xi is the first derivative of f() with respect to variable i
-- xj is the first derivative of f() with respect to variable j
+- xi is the first derivative of f() of variable i
+- xj is the first derivative of f() of variable j
 - cov_mat[i,j] is the covariance between variables i and j
 - The first derivative of f() with respect to each variable is calculated using the SymPy module
 
