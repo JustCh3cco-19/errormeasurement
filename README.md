@@ -32,7 +32,7 @@ where:
 - The standard deviation of the function
 
 # Data Download
-## The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it to the user's computer.
+## The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it into the user's computer.
 
 # Requirements
 ## The code requires the following prerequisites:
