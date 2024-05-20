@@ -1,7 +1,7 @@
 # propagazione_errori
-Calculation of Variance of a Function
+##Calculation of Variance of a Function
 
-This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
+#This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
 
 How it works:
 The user needs to input the following information:
