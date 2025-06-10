@@ -1,67 +1,104 @@
-# error-measurement
-# Calculation of Variance of a Function
-## This code allows you to calculate the variance of a mathematical function. Variance is a measure of the variability of values assumed by a function.
+# Error Measurement - Function Variance Calculator
 
-## How it works:
-The user needs to input the following information:
+A Python tool for calculating the variance and standard deviation of mathematical functions with multiple variables, using error propagation theory.
 
-- The number of variables of the function
-- The mathematical function
-- The values of the variables
-- The variances of the variables
-- The covariances of the variables
-- The code then calculates the variance of the function using the following formula: var = Σ(xi * xj * cov_mat[i,j])
+## 📋 Overview
 
-where:
+This application computes the variance of a mathematical function by analyzing how uncertainties in input variables propagate through the function. It uses partial derivatives and covariance matrices to provide accurate uncertainty measurements.
 
-- xi is the first derivative of f() of variable i
-- xj is the first derivative of f() of variable j
-- cov_mat[i,j] is the covariance between variables i and j
-- The first derivative of f() of each variable is calculated using the SymPy module
+## 🔧 How It Works
 
-- The covariance between two variables is calculated as the average of the squared products of the variable values.
+The variance calculation is based on the error propagation formula:
 
-# Output
-## The code prints the following results:
+```
+var(f) = Σᵢⱼ (∂f/∂xᵢ)(∂f/∂xⱼ) · cov(xᵢ, xⱼ)
+```
 
-- The mathematical function entered by the user
-- The values of the variables entered by the user
-- The variances entered by the user
-- The covariances entered by the user
-- The calculated variance of the function
-- The standard deviation of the function
+Where:
+- `∂f/∂xᵢ` is the partial derivative of function f with respect to variable xᵢ
+- `∂f/∂xⱼ` is the partial derivative of function f with respect to variable xⱼ  
+- `cov(xᵢ, xⱼ)` is the covariance between variables xᵢ and xⱼ
+- For i = j, `cov(xᵢ, xᵢ) = var(xᵢ)` (variance of variable xᵢ)
 
-# Data Download
-## The code also provides an option to download the user-entered data. To do this, the user must click the "Download Data" button. The code creates a text file with the user-entered data and downloads it into the user's computer.
+The partial derivatives are computed automatically using SymPy's symbolic differentiation.
 
-# Requirements
-## The code requires the following prerequisites:
+## 🚀 Features
 
-Python 3.6 or higher
-NumPy module
-SymPy module
+- **Multi-variable support**: Handle functions with up to 10 variables
+- **Automatic differentiation**: Partial derivatives computed symbolically
+- **Interactive input**: Step-by-step data entry with validation
+- **Comprehensive output**: Displays function, variables, variances, covariances, and results
+- **Data export**: Download input data and results as a text file
+- **Error propagation**: Accurate uncertainty calculation using covariance matrices
 
-# Example
-## Here's an example of using the code in a web page with the prompts:
+## 📦 Requirements
 
-- Inserisci numero incognite (max 10): 2
-- Inserisci funzione: a + b
-- Valore incognita "a" ==> 1
-- Valore incognita "b" ==> 2
-- Sicuro di aver messo le varianze? (Rispondi si per continuare, altrimenti ricarica la pagina per ricominciare): si
-- Varianza "a" ==> 1
-- Varianza "b" ==> 4
-- Covarianza "a-b" ==> 3
+- Python 3.6 or higher
+- NumPy
+- SymPy
 
-- Funzione: a + b
-- Valori delle incognite:
-- a: 1
-- b: 2
-- Varianze:
-- a: 1
-- b: 4
-- Covarianze:
-- a-b: 3
+Install dependencies:
+```bash
+pip install numpy sympy
+```
 
-- Varianza = 10
-- Deviazione standard = 3.162277660168379
+## 🎯 Usage
+
+1. Run the application
+2. Enter the number of variables (maximum 10)
+3. Input your mathematical function using variable names (a, b, c, etc.)
+4. Provide values for each variable
+5. Enter variances for each variable
+6. Input covariances between variable pairs
+7. View calculated variance and standard deviation
+8. Optionally download the results
+
+## 📊 Example
+
+**Input:**
+```
+Number of variables: 2
+Function: a + b
+Variable values: a = 1, b = 2
+Variances: var(a) = 1, var(b) = 4
+Covariances: cov(a,b) = 3
+```
+
+**Output:**
+```
+Function: a + b
+Variable values:
+  a: 1
+  b: 2
+Variances:
+  a: 1
+  b: 4
+Covariances:
+  a-b: 3
+
+Variance = 10
+Standard deviation = 3.162277660168379
+```
+
+**Calculation breakdown:**
+- ∂f/∂a = 1, ∂f/∂b = 1
+- var(f) = (1×1×1) + (1×1×4) + (1×1×3) + (1×1×3) = 1 + 4 + 3 + 3 = 10
+
+## 🔬 Applications
+
+This tool is useful for:
+- **Scientific measurements**: Propagating experimental uncertainties
+- **Engineering calculations**: Analyzing measurement errors in complex systems
+- **Statistical analysis**: Understanding how input uncertainties affect results
+- **Quality control**: Assessing precision in manufacturing processes
+- **Research**: Error analysis in mathematical modeling
+
+## 📁 File Structure
+
+```
+error-measurement/
+├── README.md
+├── main.py              # Core calculation logic
+├── requirements.txt     # Dependencies
+└── examples/           # Usage examples
+```
