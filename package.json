@@ -1,0 +1,11 @@
+{
+  "name": "error-measurement",
+  "private": true,
+  "scripts": {
+    "test": "node tests/calculator-core.test.js && node tests/calculator-symbolic.test.js",
+    "check": "node --check public/assets/js/calculator.js && node --check public/assets/js/calculator-core.js && node --check public/assets/js/paypal-checkout.js"
+  },
+  "dependencies": {
+    "mathjs": "15.2.0"
+  }
+}

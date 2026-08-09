@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: npm audit --omit=dev
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mysqli, curl
+      - name: PHP syntax
+        run: find public src -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: JavaScript syntax and unit tests
+        run: |
+          npm run check
+          npm test
+      - name: Security regression checks
+        run: sh tests/static-security.sh
+      - name: Validate Compose configuration
+        run: |
+          cp .env.example .env
+          docker compose config --quiet
+      - name: Application smoke test
+        run: |
+          docker compose up --build --wait --wait-timeout 120
+          sh tests/smoke.sh
+      - name: Container logs on failure
+        if: failure()
+        run: docker compose logs
+      - name: Stop containers
+        if: always()
+        run: docker compose down

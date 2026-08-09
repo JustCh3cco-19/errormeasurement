@@ -1,94 +1,101 @@
-# Error Measurement - Function Variance Calculator
+# Error Measurement
 
-A Python tool for calculating the variance and standard deviation of mathematical functions with multiple variables, using error propagation theory.
+A PHP web application that calculates first-order uncertainty propagation for multivariable functions:
 
-## 📋 Overview
-
-This application computes the variance of a mathematical function by analyzing how uncertainties in input variables propagate through the function. It uses partial derivatives and covariance matrices to provide accurate uncertainty measurements.
-
-## 🔧 How It Works
-
-The variance calculation is based on the error propagation formula:
-
-```
-var(f) = Σᵢⱼ (∂f/∂xᵢ)(∂f/∂xⱼ) · cov(xᵢ, xⱼ)
+```text
+Var(f) = ∇fᵀ Σ ∇f
 ```
 
-Where:
-- `∂f/∂xᵢ` is the partial derivative of function f with respect to variable xᵢ
-- `∂f/∂xⱼ` is the partial derivative of function f with respect to variable xⱼ  
-- `cov(xᵢ, xⱼ)` is the covariance between variables xᵢ and xⱼ
-- For i = j, `cov(xᵢ, xᵢ) = var(xᵢ)` (variance of variable xᵢ)
+The calculator supports up to ten variables, symbolic derivatives, variances and covariances, covariance-matrix validation, and JSON/CSV exports. Account access is protected by a PayPal payment that is verified by the server.
 
-The partial derivatives are computed automatically using SymPy's symbolic differentiation.
+## Run locally
 
-## 🚀 Features
+Docker and Docker Compose are required.
 
-- **Multi-variable support**: Handle functions with up to 10 variables
-- **Automatic differentiation**: Partial derivatives computed symbolically
-- **Interactive input**: Step-by-step data entry with validation
-- **Comprehensive output**: Displays function, variables, variances, covariances, and results
-- **Data export**: Download input data and results as a text file
-- **Error propagation**: Accurate uncertainty calculation using covariance matrices
-
-## 📦 Requirements
-
-- Python 3.6 or higher
-- NumPy
-- SymPy
-
-Install dependencies:
 ```bash
-pip install numpy sympy
+cp .env.example .env
+# Replace DB_PASSWORD with a local password.
+docker compose up --build
 ```
 
-## 🎯 Usage
+Open <http://localhost:8080>. MariaDB is initialized automatically from `database/001_schema.sql`, and its data persists in the `database_data` volume.
 
-1. Run the application
-2. Enter the number of variables (maximum 10)
-3. Input your mathematical function using variable names (a, b, c, etc.)
-4. Provide values for each variable
-5. Enter variances for each variable
-6. Input covariances between variable pairs
-7. View calculated variance and standard deviation
-8. Optionally download the results
+To start again with an empty database:
 
-## 📊 Example
-
-**Input:**
-```
-Number of variables: 2
-Function: a + b
-Variable values: a = 1, b = 2
-Variances: var(a) = 1, var(b) = 4
-Covariances: cov(a,b) = 3
+```bash
+docker compose down
+docker volume rm error-measurement_database_data
 ```
 
-**Output:**
-```
-Function: a + b
-Variable values:
-  a: 1
-  b: 2
-Variances:
-  a: 1
-  b: 4
-Covariances:
-  a-b: 3
+The second command permanently deletes local accounts and payment records.
 
-Variance = 10
-Standard deviation = 3.162277660168379
+## PayPal configuration
+
+Create a REST application in the PayPal Developer Dashboard and add its credentials to `.env`:
+
+```dotenv
+PAYPAL_ENV=sandbox
+PAYPAL_CLIENT_ID=your-application-client-id
+PAYPAL_CLIENT_SECRET=your-application-secret
 ```
 
-**Calculation breakdown:**
-- ∂f/∂a = 1, ∂f/∂b = 1
-- var(f) = (1×1×1) + (1×1×4) + (1×1×3) + (1×1×3) = 1 + 4 + 3 + 3 = 10
+Use `PAYPAL_ENV=live` only in production over HTTPS, and set `APP_SECURE_COOKIES=1`. Payments remain explicitly disabled when either credential is absent. The backend creates and captures the €2.00 order, then grants access only after verifying the status, user, amount, and currency returned by PayPal.
 
-## 🔬 Applications
+## Use the calculator
 
-This tool is useful for:
-- **Scientific measurements**: Propagating experimental uncertainties
-- **Engineering calculations**: Analyzing measurement errors in complex systems
-- **Statistical analysis**: Understanding how input uncertainties affect results
-- **Quality control**: Assessing precision in manufacturing processes
-- **Research**: Error analysis in mathematical modeling
+1. Select the number of variables. Variables are assigned in order from `a` through `j`.
+2. Enter a function such as `a * b / sqrt(c)`.
+3. Enter each variable's value and variance.
+4. Enter the covariances above the matrix diagonal.
+5. Calculate the result and optionally export it as JSON or CSV.
+
+Allowed operators are `+ - * / ^`. Allowed functions are `sin`, `cos`, `tan`, `exp`, `log`, `sqrt`, and `abs`. The application rejects covariance matrices that are not symmetric and positive semidefinite.
+
+For example, with `f = a + b`, variances `1` and `4`, and covariance `1`, the propagated variance is `1 + 4 + 2·1 = 7`.
+
+## Security model
+
+- Passwords are stored with `password_hash`.
+- Database operations use parameterized queries and unique constraints.
+- The session ID is regenerated after sign-in.
+- Session cookies use `HttpOnly`, `SameSite=Lax`, and `Secure` over HTTPS.
+- State-changing requests require CSRF tokens.
+- Failed sign-in attempts are rate-limited.
+- Mathematical expressions are parsed into an AST and restricted to an allowlist.
+- Calculator and payment-success routes are protected on the server.
+- PayPal orders are created and captured on the server with idempotency keys.
+- Credentials come exclusively from environment variables.
+- The Apache image sends restrictive HTTP security headers.
+
+In production, use strong database credentials, terminate TLS correctly, protect application logs, and keep Docker images and locked dependencies up to date. Math.js is installed from the lockfile and copied into the image; it is not loaded from a public CDN.
+
+## Tests
+
+```bash
+npm ci
+npm audit --omit=dev
+npm run check
+npm test
+sh tests/static-security.sh
+find public src -name '*.php' -print0 | xargs -0 -n1 php -l
+docker compose config --quiet
+# With the containers running:
+sh tests/smoke.sh
+```
+
+The GitHub Actions workflow runs these checks on every push and pull request.
+
+## Repository layout
+
+```text
+public/                 Apache document root
+  assets/               Browser CSS and JavaScript
+  auth/                 Registration and sign-out routes
+  calculator/           Protected calculator page
+  dashboard/            Authenticated account page
+  payments/             PayPal API routes and success page
+src/                    Private PHP bootstrap and PayPal client
+database/               Versioned database schema
+docker/                 Apache security configuration
+tests/                  Numerical, symbolic, security, and smoke tests
+```
